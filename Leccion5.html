@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Acordiones</title>
+
+	<!--Libreria JQuery--->
+	<script src="js/lib/jquery-2.1.4.min.js"></script>
+
+	<!--Lebreria Bootstrap-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
+
+</head>
+<body>
+	<div class="container">
+		<h1>Leccion 5: Acordeones</h1>
+		<hr>
+		
+		<div align="center">
+			<dl>
+				<dt>Titulo del acordeon</dt>
+				<dd>Este es el detalle del acordeon</dd>
+				<dt>Titulo del acordeon</dt>
+				<dd>Este es el detalle del acordeon</dd><dt>Titulo del acordeon</dt>
+				<dd>Este es el detalle del acordeon</dd><dt>Titulo del acordeon</dt>
+				<dd>Este es el detalle del acordeon</dd>
+			</dl>
+			
+		</div>	
+
+
+	</div>
+
+	<script>
+
+		//Se ulitiliza el # cuando es id
+		//se utiliza . cuendo es una clase
+		//se escribe el atributo(elemento) dd
+		
+
+
+		//encapsulamiento = evitar que a nuestras variables puedan ser accesadas por error a otras funciones de jquery o JS
+
+		//crear una funcion anonima
+		(function(){
+			//lo que este dentro de aca solo existira aqui 
+
+			//crear una variable
+			var dd =$('dd');
+
+			//ocultar variable
+			dd.hide();
+			dd.eq(0).show();//mostrar el primero
+
+			$('dt').on("mouseenter", function(){
+				dd.slideUp(2000);
+
+				$(this).next()
+					   .show();
+			});
+
+		})(); //llamar funcion
+
+
+
+
+	</script>
+</body>
+</html>

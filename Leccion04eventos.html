@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Eventos</title>
+
+	<!--Libreria JQuery--->
+	<script src="js/lib/jquery-2.1.4.min.js"></script>
+
+	<!--Lebreria Bootstrap-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		.img100{
+			width: 150px;
+			height: 150px;
+		}
+		.caja1{
+			background-color: purple;
+			width: 100px;
+			height: 100px;
+		}
+		.caja2{
+			background-color: red;
+			width: 100px;
+			height: 100px;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Eventos</h1>
+		<hr>
+
+		<button class="btn btn-primary" id="buton1">Evento Click</button>
+
+		<br><br>
+		<img src="img/dualipa.jpg" class="img100">
+		<br><br>
+
+		<div class="caja1"></div>
+		<br><br>
+
+		<a href="http://udemy.com" id="link1
+		">Ir a Udemy</a>
+
+
+
+	</div>
+
+	<script >
+		
+		//jquery busca buton1(id) y cunado le de clic que se muestre en la consola "Hola"
+		$("#buton1").on("click", function(){
+			console.log("Hola");
+		});
+
+		//Cuando el mouse este dentro de la imagen se mostrara un mensaje en consola 
+		$(".img100").on("mouseenter", function(){
+			//evento mouse enter
+			//this ->DOM->img100
+			//cuendo entre el mouse cambia img
+			$(this).attr("src","img/justinbieber.jpg");
+		});
+
+		//Se muestra el mensaje depues de entrar a la img
+		// $(".img100").on("mouseover", function(){
+		// 	console.log("Hola estas fuera de la img");
+		// });
+
+		//
+		$(".img100").on("mouseleave", function(){
+			$(this).attr("src","img/dualipa.jpg");
+		});
+
+		$(".caja1").on("mouseenter", function(){
+			console.log("Hello");
+		});
+
+		//Controles especiales para links
+		$("#link1").on('click', function(e){
+			e.preventDefault();
+			console.log("prevenir una funcion");
+			//this hace referencia a #link1
+			var link = $(this).attr("href");
+			console.log(link);
+			window.location = link;
+		});
+
+		//muestra el mensaje hasta que la pag esta cargada completamente
+		//cuando carga todos los elementos muestra la pag
+		$(document).ready(function(){
+			console.log("La pagina esta lista");
+		});
+
+
+
+
+
+	</script>
+
+</body>
+</html>
